@@ -1,0 +1,93 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+
+\lstdefinestyle{mystyle}{  
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Einf\"uhrung in die Informatik\\
+Ausarbeitung \"Ubung 2}
+
+% Namen der Bearbeiter einfuegen
+
+\author{hier steht dann der oder die Namen(n)}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{"Ubung}
+\begin{verbatim}
+for (int zaehler = 0; zaehler != 10; zaehler = zaehler + 1)
+\end{verbatim}
+Die Schleife wird 10 mal durchlaufen, wobei die Z"ahlervariable alle Werte von einschließlich 0 bis einschließlich 10 annimt. Wenn Z"ahlervariable jedoch 10 ist, wird Schleife nicht mehr durchlaufen.
+\begin{verbatim}
+
+for (int n = 10; n > 0; n = n - 1)
+\end{verbatim}
+Die Schleife wird 10 mal durchlaufen, wobei die Z"ahlervariable alle Werte von einschließlich 0 bis einschließlich 10 annimt. Wenn Z"ahlervariable jedoch 0 ist, wird Schleife nicht mehr durchlaufen.
+\begin{verbatim}
+
+for (int x = 1; x <= 15; x = x + 3)
+\end{verbatim}
+Die Schleife wird 5 mal durchlaufen, wobei die Z"ahlervariable die Werte von einschließlich 1, 4, 7, 10 und 13 annimt.
+\begin{verbatim}
+
+for (int x = 1; x != 15; x = x + 3)
+\end{verbatim}
+Es wurde eine Endlossschleife erzeugt, denn die Z"ahlervariable ist immmer ungleich 15. Die Zählervariable nimmt folgende Werte an: 1, 4, 7, 10, 13, 16, \dots
+\begin{verbatim}
+
+for (int x = 1; x == 15; x = x + 3)
+\end{verbatim}
+Die Schleife wird nie durchlaufen, denn die Z"ahlervariable ist bei der Initialisierung ungleich 15, sodass die Bedingung der Schleife nicht erfüllt ist und die Schleife kein einziges Mal ausgef"uhrt wird.
+\begin{verbatim}
+
+for (char c = '5'; c <= '9'; c = c + 2)
+\end{verbatim}
+Die Schleife wird 3 Mal durchlaufen, wobei die Z"ahlervariable die Werte 5, 7 und 9 annimt.\newpage
+\section{"Ubung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task2.cpp}\newpage
+\section{"Ubung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task3.cpp}\newpage
+\section{"Ubung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task4.cpp}\newpage
+\section{"Ubung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task5.cpp}\newpage
+\section{"Ubung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task6.cpp}
+
+\end{document}
