@@ -1,0 +1,199 @@
+Programm
+
+Aufgabe 1:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main( int argc, char* argv [] ) 
+{
+int Liste [20] ;
+int Minimum;
+int i;
+
+
+// Fuellen der Liste mit Zufallselementen
+for ( i = 0 ; i < 20; i++) 
+{
+Liste [i] = rand();
+}
+
+// Bislang kleinstes Element
+
+Minimum = Liste[0];
+
+// Kleinstes Element der ganzen Liste suchen
+for (i = 1; i<20; i++)
+{
+    if(Liste[i] < Minimum)
+    {
+        Minimum = Liste[i];
+    }
+}
+
+//Ausgabe des Ergebnisses
+printf("Das Minimum von ");
+for(i = 0; i<20; i++)
+{
+    printf("%i ", Liste[i]);
+}
+printf("ist.\n%i\n", Minimum);
+return 0;
+}
+
+Aufgabe 2
+
+	Problems: 	'Minimum' was not declared in this scope
+			identifier "Minimum" is undefined
+	Problems:	expected ';' before '}' token
+			expected a ';'
+	Problems:	identifier "four" is undefined
+			expected ')' before ';' token
+			expected a ')'
+			expected ';' before ')' token
+			expected a ';'
+	Problem:	expected '}' at end of input
+
+
+Größtes Element
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main( int argc, char* argv [] ) 
+{
+int Liste [20] ;
+int Maximum;
+int i;
+
+
+// Fuellen der Liste mit Zufallselementen
+for ( i = 0 ; i < 20; i++) 
+{
+Liste [i] = rand();
+}
+
+// Bislang kleinstes Element
+
+Maximum = Liste[0];
+
+// Größtes Element der ganzen Liste suchen
+for(i = 1; i<20; i++)
+{
+    if(Liste[i] > Maximum)
+    {
+        Maximum = Liste[i];
+    }
+}
+
+//Ausgabe des Ergebnisses
+printf("Das Minimum von ");
+for(i = 0; i<20; i++)
+{
+    printf("%i ", Liste[i]);
+}
+printf("ist.\n%i\n", Maximum);
+return 0;
+}
+
+
+
+
+
+Kleinstes Element aus 40 Elementen
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main( int argc, char* argv [] ) 
+{
+int Liste [40] ;
+int Minimum;
+int i;
+
+
+// Fuellen der Liste mit Zufallselementen
+for ( i = 0 ; i < 40; i++) 
+{
+Liste [i] = rand();
+}
+
+// Bislang kleinstes Element
+
+Minimum = Liste[0];
+
+// Kleinstes Element der ganzen Liste suchen
+for(i = 1; i<40; i++)
+{
+    if(Liste[i] < Minimum)
+    {
+        Minimum = Liste[i];
+    }
+}
+
+//Ausgabe des Ergebnisses
+printf("Das Minimum von ");
+for(i = 0; i<40; i++)
+{
+    printf("%i ", Liste[i]);
+}
+printf("ist.\n%i\n", Minimum);
+return 0;
+}
+
+
+
+
+
+
+Umlaute in Kommentar oder Variablennamen
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main( int argc, char* argv [] ) 
+{
+int Listä [40] ;
+int Minimum;
+int i;
+
+
+// Fuellen der Liste mit Zufallselementen
+for ( i = 0 ; i < 40; i++) 
+{
+Listä [i] = rand();
+}
+
+// Bisläng kleinstes Element
+
+Minimum = Listä[0];
+
+// Kleinstes Element der ganzen Liste suchen
+for(i = 1; i<40; i++)
+{
+    if(Listä[i] < Minimum)
+    {
+        Minimum = Listä[i];
+    }
+}
+
+//Ausgabe des Ergebnisses
+printf("Das Minimum von ");
+for(i = 0; i<40; i++)
+{
+    printf("%i ", Listä[i]);
+}
+printf("ist.\n%i\n", Minimum);
+
+return 0;
+}
+
+
+
+
+Aufrufen des 55. Elements:	argument of type "int" is incompatible with parameter of type "const char *"C/C++(167) -> Fehlermeldung, da versucht wird auf Element zuzugreifen, dass nicht existiert.
+
+
+
+Veränderung der Werte: Mit dem Debugger erkennt man, welche Werte die Variablen zugewiesen bekommen
+
