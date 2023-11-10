@@ -1,0 +1,63 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+
+\lstdefinestyle{mystyle}{  
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Einf\"uhrung in die Informatik\\
+Ausarbeitung \"Ubung 2}
+
+% Namen der Bearbeiter einfuegen
+
+\author{hier steht dann der oder die Namen(n)}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{Schaltjahr}
+\lstinputlisting[language=c++]{task1.cpp}
+\section{Zuweisungen}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task2.cpp}\newpage
+\section{Vorzeichen}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task3.cpp}\newpage
+\section{Quadratische Gleichung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task4.cpp}\newpage
+\section{Tage pro Monat}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task5.cpp}\newpage
+
+
+\end{document}
