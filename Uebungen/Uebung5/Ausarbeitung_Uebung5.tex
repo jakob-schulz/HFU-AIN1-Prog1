@@ -1,0 +1,72 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+
+\lstdefinestyle{mystyle}{  
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Einf\"uhrung in die Informatik\\
+Ausarbeitung \"Ubung 5}
+
+% Namen der Bearbeiter einfuegen
+
+\author{Jakob Schulz}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{Zufallszahlen 1}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task1.cpp}\newpage
+\section{Zufallszahlen 2}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task2.cpp}\newpage
+\section{Bin"ardarstellung}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task3.cpp}\newpage
+\section{L"ange einer Zeichenkette}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task4.cpp}\newpage
+\section{Zeichenkettenvergleich}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task5.cpp}\newpage
+\section{Zeichenkette umdrehen}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task6.cpp}\newpage
+\section{Zeichenketten ohne Vokale}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task7.cpp}\newpage
+\section{Zeichenketten zusammenf"ugen}
+Ausarbeitung:
+\lstinputlisting[language=c++]{task8.cpp}\newpage
+
+\end{document}
