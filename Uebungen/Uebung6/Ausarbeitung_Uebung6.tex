@@ -9,50 +9,41 @@
 \usepackage{xcolor}
 \usepackage{listings}
 
-% Solarized colour scheme for listings
-\definecolor{solarized@base03}{HTML}{002B36}
-\definecolor{solarized@base02}{HTML}{073642}
-\definecolor{solarized@base01}{HTML}{586e75}
-\definecolor{solarized@base00}{HTML}{657b83}
-\definecolor{solarized@base0}{HTML}{839496}
-\definecolor{solarized@base1}{HTML}{93a1a1}
-\definecolor{solarized@base2}{HTML}{EEE8D5}
-\definecolor{solarized@base3}{HTML}{FDF6E3}
-\definecolor{solarized@yellow}{HTML}{B58900}
-\definecolor{solarized@orange}{HTML}{CB4B16}
-\definecolor{solarized@red}{HTML}{DC322F}
-\definecolor{solarized@magenta}{HTML}{D33682}
-\definecolor{solarized@violet}{HTML}{6C71C4}
-\definecolor{solarized@blue}{HTML}{268BD2}
-\definecolor{solarized@cyan}{HTML}{2AA198}
-\definecolor{solarized@green}{HTML}{859900}
 
-% Define C++ syntax highlighting colour scheme
-\lstset{language=C++,
-        basicstyle=\footnotesize\ttfamily,
-        numbers=left,
-        numberstyle=\footnotesize,
-        tabsize=2,
-        breaklines=true,
-        escapeinside={@}{@},
-        numberstyle=\tiny\color{solarized@base01},
-        keywordstyle=\color{solarized@green},
-        stringstyle=\color{solarized@cyan}\ttfamily,
-        identifierstyle=\color{solarized@blue},
-        commentstyle=\color{solarized@base01},
-        emphstyle=\color{solarized@red},
-        frame=single,
-        rulecolor=\color{solarized@base2},
-        rulesepcolor=\color{solarized@base2},
-        showstringspaces=false
+\definecolor{dunkelblau}{RGB}{16, 55, 188}
+\definecolor{orange}{RGB}{255, 60, 0}
+\definecolor{gruen}{RGB}{18, 118, 34}
+\definecolor{gelb}{RGB}{255, 200, 0}
+\definecolor{lila}{RGB}{147, 18, 114}
+
+\lstdefinestyle{c++}{
+language=C++,
+commentstyle=\color{gruen}, 
+keywordstyle =\color{dunkelblau}, 
+stringstyle=\color{orange},
+literate=
+    {\{}{{\textcolor{gelb}{\{}}}1
+    {\}}{{\textcolor{gelb}{\}}}}1
+    {[}{{\textcolor{lila}{[}}}1
+    {]}{{\textcolor{lila}{]}}}1,
+%Bis hier hin Farbgebung
+frame=single, % Umrandung des Codes
+rulecolor=\color{lightgray},
+numbers=left, % Nummerierung hinzufügen (links)
+numberstyle=\tiny, % Stil der Zeilennummern
+stepnumber=1, % Schrittzahl für die Nummerierung
+numbersep=5pt, % Abstand zwischen Nummerierung und Code
+basicstyle=\sffamily, % Ändert die Schriftart des Codes
+tabsize = 4, %Tab-Abstand
+breaklines=true, %Zeilenumbruch
+showstringspaces=false
 }
 
 
 \begin{document}
 
 % hier aktuelle Uebungsnummer einfuegen
-\title{Einf\"uhrung in die Informatik\\
-Ausarbeitung \"Ubung 5}
+\title{Programmieren "Ubung 6}
 
 % Namen der Bearbeiter einfuegen
 
@@ -66,25 +57,24 @@ Ausarbeitung \"Ubung 5}
 
 \section{Tauschen von Werten}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task1.cpp}\newpage
+\lstinputlisting[style = c++]{task1.cpp}\newpage
 \section{Arrays ohne [] -die Erste}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task2.cpp}\newpage
+\lstinputlisting[style = c++]{task2.cpp}\newpage
 \section{Arrays ohne [] -die Zweite}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task3.cpp}\newpage
+\lstinputlisting[style = c++]{task3.cpp}\newpage
 \section{Quadratfunktion}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task4.cpp}\newpage
+\lstinputlisting[style = c++]{task4.cpp}\newpage
 \section{String umdrehen}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task5.cpp}\newpage
+\lstinputlisting[style = c++]{task5.cpp}\newpage
 \section{Zweierpotenzen}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task6.cpp}\newpage
+\lstinputlisting[style = c++]{task6.cpp}\newpage
 \section{Teilstrings z"ahlen}
 Ausarbeitung:
-\lstinputlisting[language=c++]{task7.cpp}\newpage
-\section{Zeichenketten zusammenf"ugen}
+\lstinputlisting[style = c++]{task7.cpp}\newpage
 
 \end{document}
