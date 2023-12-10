@@ -1,0 +1,122 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+
+
+\definecolor{dunkelblau}{RGB}{16, 55, 188}
+\definecolor{orange}{RGB}{255, 60, 0}
+\definecolor{gruen}{RGB}{18, 118, 34}
+\definecolor{gelb}{RGB}{255, 200, 0}
+\definecolor{lila}{RGB}{147, 18, 114}
+
+\lstdefinestyle{c++}{
+language=C++,
+commentstyle=\color{gruen}, 
+keywordstyle =\color{dunkelblau}, 
+stringstyle=\color{orange},
+literate=
+    {\{}{{\textcolor{gelb}{\{}}}1
+    {\}}{{\textcolor{gelb}{\}}}}1
+    {[}{{\textcolor{lila}{[}}}1
+    {]}{{\textcolor{lila}{]}}}1,
+%Bis hier hin Farbgebung
+frame=single, % Umrandung des Codes
+rulecolor=\color{lightgray},
+numbers=left, % Nummerierung hinzufügen (links)
+numberstyle=\tiny, % Stil der Zeilennummern
+stepnumber=1, % Schrittzahl für die Nummerierung
+numbersep=5pt, % Abstand zwischen Nummerierung und Code
+basicstyle=\sffamily, % Ändert die Schriftart des Codes
+tabsize = 4, %Tab-Abstand
+breaklines=true, %Zeilenumbruch
+showstringspaces=false
+}
+
+
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Programmieren "Ubung 7}
+
+% Namen der Bearbeiter einfuegen
+
+\author{Jakob Schulz}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{Taschenrechnerfunktion}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task1.cpp}\newpage
+\section{Kommandozeilenrechner}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task2.cpp}\newpage
+\section{Gr"oßter gemeinsamer Teiler}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task3.cpp}\newpage
+\section{Primzahlen}
+Ausarbeitung:
+%\lstinputlisting[style = c++]{task4.cpp}\newpage
+\begin{lstlisting}[style = c++]
+#include <stdio.h>
+
+// Prototypen
+bool prim(int x);
+
+int main()
+{
+    int input;
+    printf("Zahl, die ueberprueft werden soll:");
+    scanf("%i", &input);
+    if (prim(input))
+    {
+        printf("Die Zahl ist prim.");
+    }
+    else
+    {
+        printf("Die Zahl ist nicht prim.");
+    }
+    return 0;
+}
+
+// ueberprueft, ob eine eingegebene Zahl eine Primzahl ist
+bool prim(int x)
+{
+    for (int quotient = 2; quotient * quotient <= x; quotient++)
+    {
+        if ((x % quotient) == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+\end{lstlisting}
+Frage: Bis wohin muss man Teiler "uperpr"ufen?\\
+Die h"ochste Zahl, die man Pr"ufen muss, ob sie Teiler der eingegeben Zahl ist, ist die Wurzel der eingegebenen Zahl\\
+Grund: Zieht man die Wurzel sind beide Teiler gr"oßtm"oglich. F"ur jeden Teiler, der gr"oßer als die Wurzel ist, ist der andere kleiner als die Wurzel.\\
+Weiteres Beispiel:\\
+F"ur eine eingegebene Zahl t m"usste gelten:\\
+$\sqrt{t+x}\cdot \sqrt{t} = t$\\
+Ergebnis der Gleichung:\\
+$t\cdot x = t.$\\
+Somit gibt es keine Teilerkombination bestehend aus einer Zahl gr"oßer Wurzel n und gleich Wurzel n.
+\section{Worte und Zeichen 1}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task5.cpp}\newpage
+\section{Worte und Zeichen 2}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task6.cpp}\newpage
+
+
+\end{document}
