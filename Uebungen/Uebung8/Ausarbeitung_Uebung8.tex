@@ -1,0 +1,91 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+
+
+\definecolor{dunkelblau}{RGB}{16, 55, 188}
+\definecolor{orange}{RGB}{255, 60, 0}
+\definecolor{gruen}{RGB}{18, 118, 34}
+\definecolor{gelb}{RGB}{255, 200, 0}
+\definecolor{lila}{RGB}{147, 18, 114}
+
+\lstdefinestyle{c++}{
+language=C++,
+commentstyle=\color{gruen}, 
+keywordstyle =\color{dunkelblau}, 
+stringstyle=\color{orange},
+literate=
+    {\{}{{\textcolor{gelb}{\{}}}1
+    {\}}{{\textcolor{gelb}{\}}}}1
+    {[}{{\textcolor{lila}{[}}}1
+    {]}{{\textcolor{lila}{]}}}1,
+%Bis hier hin Farbgebung
+frame=single, % Umrandung des Codes
+rulecolor=\color{lightgray},
+numbers=left, % Nummerierung hinzufügen (links)
+numberstyle=\tiny, % Stil der Zeilennummern
+stepnumber=1, % Schrittzahl für die Nummerierung
+numbersep=5pt, % Abstand zwischen Nummerierung und Code
+basicstyle=\sffamily, % Ändert die Schriftart des Codes
+tabsize = 4, %Tab-Abstand
+breaklines=true, %Zeilenumbruch
+showstringspaces=false
+}
+
+
+\definecolor{hellblau}{RGB}{100,149,237}
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Programmieren "Ubung 8}
+
+% Namen der Bearbeiter einfuegen
+
+\author{Jakob Schulz}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{Strukturen}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task1.c}\newpage
+\section{Arrays und Strukturen}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task2.c}\newpage
+\section{Datum}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task3.cpp}\newpage
+\section{Funktionen mit Strukturen als Parameter}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task4.cpp}\newpage
+\section{Vektorfunktionen}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task5.cpp}\newpage
+\section{Personendatenbank}
+Ausarbeitung:
+\lstinputlisting[style = c++]{task6.cpp}\newpage
+\section{Geschachtelte Schleifen}
+Array Zahlen zu Beginn: (2)(1)(0)(2)(1)\\
+\begin{tabular}{lll}
+Anzahl besuchte innere for-Schleife&Zusammensetzung der Zahlen&Array\\
+Erstes Mal (i==0):& (\textcolor{hellblau}{2+1})(1)(\textcolor{hellblau}{3+0})(2)(\textcolor{hellblau}{3+3})&= (3)(1)(3)(2)(6)\\
+Zweites Mal (i==1):& (\textcolor{hellblau}{3+6})(1)(\textcolor{hellblau}{9+3})(2)(\textcolor{hellblau}{9+9})&= (9)(1)(12)(2)(18)\\
+Drittes Mal (i==2):&(\textcolor{hellblau}{1+18})(1)(\textcolor{hellblau}{1+12})(2)(\textcolor{hellblau}{1+19})&= (19)(1)(13)(2)(20)\\
+Viertes Mal (i==3):&(\textcolor{hellblau}{1+20})(1)(\textcolor{hellblau}{1+13})(2)(\textcolor{hellblau}{1+21})&= (21)(1)(14)(2)(22)\\
+F"unftes Mal (i==4):&(\textcolor{hellblau}{14+22})(1)(\textcolor{hellblau}{14+14})(2)(\textcolor{hellblau}{28+36})&= (36)(1)(28)(2)(64)
+\end{tabular}
+\\
+\\
+Die blauen Elemente geben an, welche Spalten ge"andert werden\\
+\lstinputlisting[style = c++]{task7.cpp}
+\end{document}
