@@ -1,17 +1,6 @@
-#include <stdio.h>
+#include"stack.h"
 
-char stack[100];
-int topposition = -1; // Repraesentiert die Position des obersten Elements des Stacks
-
-// Prototypen
-void push(char c);
-char pop();
-char top();
-unsigned int size();
-bool empty();
-void clear();
-void tests();
-
+//Prototypen
 void correctBrackets();
 
 int main()
@@ -25,54 +14,54 @@ void correctBrackets()
     gets(brackets);
     for (int position = 0; position < 100 && brackets[position] != 0; position++)
     {
-        if (brackets[position] == '(' || brackets[position] == '{' || brackets[position] == '[')
+        if (brackets[position] == '(' || brackets[position] == '{' || brackets[position] == '[') //Wenn sich Klammer geoeffnet ist, dann wird ein Element hinzugefuegt
         {
             push(brackets[position]);
         }
         else
         {
-            switch (brackets[position])
+            switch (brackets[position]) //Wenn Klammer geschlossen wird, muss ueberprueft werden, welche Klammer auf dem Stack ist. 
             {
             case ')':
-                if (stack[topposition] == '(')
+                if (top() == '(' && !empty())
                 {
-                    pop(); //Wieso gibt das keinen Fehler? eigentlich gibt Funktion einen Wert zurueck
+                    pop(); //Rueckgabewert wird einfach weg geworfen
                 }
                 else
                 {
-                    printf("Keine korrekte Klammerung");
+                    printf("\nKeine korrekte Klammerung");
                     return;
                 }
                 break;
             case ']':
-                if (stack[topposition] == '[')
+                if (top() == '[' &&!empty()) //Zusaetzlich wird jedes mal ueberprueft, ob der stack noch nicht leer ist. (Ansonsten wuerde bei ()) kein korrektes Ergebnis kommen)
                 {
                     pop();
                 }
                 else
                 {
-                    printf("Keine korrekte Klammerung");
+                    printf("\nKeine korrekte Klammerung");
                     return;
                 }
                 break;
             case '}':
-                if (stack[topposition] == '{')
+                if (top() == '{' && !empty())
                 {
                     pop();
                 }
                 else
                 {
-                    printf("Keine korrekte Klammerung");
+                    printf("\nKeine korrekte Klammerung");
                     return;
                 }
                 break;
             default:
-                printf("Keine korrekte Klammerung");
+                printf("\nKeine korrekte Klammerung");
                 return;
             }
         }
     }
-    if (empty())
+    if (empty()) //Wenn das Programm bis hierhin laeuft und der stack am Ende leer ist, wurde korrekt geklammert
     {
         printf("Korrekte Klammerung");
     }
@@ -80,62 +69,4 @@ void correctBrackets()
     {
         printf("Keine korrekte Klammerung");
     }
-}
-
-void push(char c) // Legt den char-Wert oben auf dem Stapel ab
-{
-    if (topposition < 100) // Wenn das oberste Element die Position 100 haette, waere man ausserhalb des Arrays
-    {
-        topposition++;
-        stack[topposition] = c;
-    }
-    else
-    {
-        printf("Stack overflow");
-    }
-}
-
-char pop() // Entfernt den obersten char-Wert vom Stapel und gibt diesen Wert zurueck
-{
-    char top = stack[topposition];
-    if (topposition > -1)
-    {
-        topposition = topposition - 1;
-        return top; // Oberstes Element wird zurueck gegeben
-    }
-    printf("Stack is empty");
-    return stack[0]; // Wenn der Array leer ist wird das Element an 0. Stelle ausgegeben
-}
-
-char top() // Liefert den Wert des obersten char-Werts vom Stapel, ohne diesen zu entfernen
-{
-    if (topposition > -1)
-    {
-        return stack[topposition];
-    }
-    printf("Stack is empty");
-    return stack[0]; // Wenn der Array leer ist wird das Element an 0. Stelle ausgegeben
-}
-
-unsigned int size() // Liefert die Anzahl der Eintr¨age auf dem Stapel
-{
-    if (topposition == -1) // topposition == -1 gilt, wenn der array leer ist
-    {
-        return 0;
-    }
-    return topposition + 1; //+1, weil gilt position = AnzEintraege - 1
-}
-
-bool empty() // Liefert true genau dann, wenn der Stapel leer ist
-{
-    if (topposition == -1)
-    {
-        return true;
-    }
-    return false;
-}
-
-void clear() // Leert den Stack vollst¨andig bzw. initialisiert ihn.
-{
-    topposition = -1;
 }

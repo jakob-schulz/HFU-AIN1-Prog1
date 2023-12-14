@@ -1,22 +1,7 @@
-#include <stdio.h>
+#include"stack.h"
 
-char stack[100];
+int stack[100];
 int topposition = -1; // Repraesentiert die Position des obersten Elements des Stacks
-
-// Prototypen
-void push(char c);
-char pop();
-char top();
-unsigned int size();
-bool empty();
-void clear();
-void tests();
-
-int main()
-{
-    tests();
-    return 0;
-}
 
 void push(char c) // Legt den char-Wert oben auf dem Stapel ab
 {
@@ -53,7 +38,7 @@ char top() // Liefert den Wert des obersten char-Werts vom Stapel, ohne diesen z
     return stack[0]; //Wenn der Array leer ist wird das Element an 0. Stelle ausgegeben
 }
 
-unsigned int size() // Liefert die Anzahl der Eintr¨age auf dem Stapel
+unsigned int size() // Liefert die Anzahl der Eintraege auf dem Stapel
 {
     if(topposition == -1) //topposition == -1 gilt, wenn der array leer ist
     {
@@ -71,7 +56,7 @@ bool empty() // Liefert true genau dann, wenn der Stapel leer ist
     return false;
 }
 
-void clear() // Leert den Stack vollst¨andig bzw. initialisiert ihn.
+void clear() // Leert den Stack vollstaendig bzw. initialisiert ihn.
 {
     topposition = -1;
 }

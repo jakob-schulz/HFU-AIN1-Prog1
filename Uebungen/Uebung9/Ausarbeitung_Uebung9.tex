@@ -1,0 +1,108 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+
+
+\definecolor{dunkelblau}{RGB}{16, 55, 188}
+\definecolor{orange}{RGB}{255, 60, 0}
+\definecolor{gruen}{RGB}{18, 118, 34}
+\definecolor{gelb}{RGB}{255, 200, 0}
+\definecolor{lila}{RGB}{147, 18, 114}
+
+\lstdefinestyle{c++}{
+language=C++,
+commentstyle=\color{gruen}, 
+keywordstyle =\color{dunkelblau}, 
+stringstyle=\color{orange},
+literate=
+    {\{}{{\textcolor{gelb}{\{}}}1
+    {\}}{{\textcolor{gelb}{\}}}}1
+    {[}{{\textcolor{lila}{[}}}1
+    {]}{{\textcolor{lila}{]}}}1,
+%Bis hier hin Farbgebung
+frame=single, % Umrandung des Codes
+rulecolor=\color{lightgray},
+numbers=left, % Nummerierung hinzufügen (links)
+numberstyle=\tiny, % Stil der Zeilennummern
+stepnumber=1, % Schrittzahl für die Nummerierung
+numbersep=5pt, % Abstand zwischen Nummerierung und Code
+basicstyle=\sffamily, % Ändert die Schriftart des Codes
+tabsize = 4, %Tab-Abstand
+breaklines=true, %Zeilenumbruch
+showstringspaces=false
+}
+
+
+\definecolor{hellblau}{RGB}{100,149,237}
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Programmieren "Ubung 9}
+
+% Namen der Bearbeiter einfuegen
+
+\author{Jakob Schulz}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{Stack + Fehlerbehandlung}
+Ausarbeitung:
+In diesem Code fehlt die main-Funktion, da ein Teil dieser Aufgabe darin bestand, den Code zu modularisieren.
+Die Aufgabe 2 (Fehlerbehandlung) wurde mit Hilfe der Funktion "`tests"' erf"ullt.
+\lstinputlisting[style = c++]{stack.cpp}\newpage
+\stepcounter{section}
+\section{Ausgeglichene Klammerung}
+\lstinputlisting[style = c++]{brackets.cpp}\newpage
+\section{Modularisierung}
+\lstinputlisting[style = c++]{stack.h}
+Man kann den Code zum einen kompilieren, indem man in Shell\\\verb?g++ -o brackets brackets.cpp stack.cpp? eingibt oder man lädt sich Cmake herunter und erstellt eine CMake.Lists Datei. Zudem muss man sich in VS Code die Cmake Tools Erweiterung herunterladen. Man kann das Programm ausf"uhren, indem man unten auf den Play Button drückt.\\
+Aussehen der CMakeLists.txt:
+\lstinputlisting[style = c++]{CMakeLists.txt}
+\section{Modularisierungsfehler}
+\subsection{Vergessen eine Funktion in stack.cpp zu implementieren}
+Im folgenden wurde vergessen Funktion \verb+top()+ zu implementieren:\\
+Fehler:
+\begin{verbatim}
+C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\jakob\AppD
+ata\Local\Temp\ccvgV7Qn.o:stack.cpp:(.text+0x138): undefined reference to `top()'
+\end{verbatim}
+Es wird ausgegeben, dass \verb+top()+ auf nichts verweist (undefined reference to top()).
+\subsection{Duplizieren einer Funktion aus stack.cpp in brackets.cpp}
+Im folgenden wurde die Funktion \verb+tests()+ in brackets.cpp eingef"ugt.
+Fehler:\\
+\begin{verbatim}
+C:/msys64/ucrt64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\jakob\AppD
+ata\Local\Temp\cchyBUKb.o:brackets.cpp:(.text+0x18e): multiple definition of `tests()'; C:\Users\jakob\AppData\Local\Tem
+p\ccacGCJ8.o:stack.cpp:(.text+0x155): first defined here
+\end{verbatim}
+Es wird ausgegeben, dass die Funktion \verb+tests()+ mehrfach definiert wurde (multiple definition of tests()).
+\subsection{Entfernen der Datei brackets.cpp}
+Fehler:\\
+\begin{verbatim}
+cc1plus.exe: fatal error: brackets.cpp: No such file or directory
+compilation terminated.
+\end{verbatim}
+Der Kompiler kann die Datei nicht mehr finden.
+\subsection{Entfernen von \#include''stack.h'' in brackets.cpp}
+Fehler: In VS Code erscheint die Fehlermeldung, dass die verwendeten Funktionen (top(), pop(), ...) nicht deklariert sind. Dieser Fehler kommt auch beim Versuch den  Code zu kompilieren.
+\subsection{Ein Prototyp aus stack.h bekommt einen anderen Rückgabetyp}
+Aus \verb+char pop()+ wir \verb+void pop()+.
+In VS Code kommen bereits in der Datei stack.cpp der Fehler, dass der Rückgabetyp der Funktion nicht mit dem Rückgabewert des Prototypen "ubereinstimmt und, dass "`void"' keinen Wert "ubergibt. Auch beim Versuch den Code zu Kompilieren kommen diese Fehler.
+\subsection{Entfernen des Prototypen pop() aus stack.h}
+In VS Code kommt in der Datei brackets.cpp die Fehlermeldung, dass die Funktion pop() nicht deklariert wurde. Auch beim Versuch den Code zu kompilieren kommt dieser Fehler.
+\newpage
+\section{Bubble-Sort}
+\lstinputlisting[style = c++]{bubblesort.cpp}
+
+\end{document}
