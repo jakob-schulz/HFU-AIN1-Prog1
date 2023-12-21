@@ -1,0 +1,74 @@
+\documentclass[a4paper,11pt,titlepage]{article}
+
+\usepackage{ucs}
+\usepackage[german,ngerman]{babel}
+\usepackage{fontenc}
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex]{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{listings}
+
+
+\definecolor{dunkelblau}{RGB}{16, 55, 188}
+\definecolor{orange}{RGB}{255, 60, 0}
+\definecolor{gruen}{RGB}{18, 118, 34}
+\definecolor{gelb}{RGB}{255, 200, 0}
+\definecolor{lila}{RGB}{147, 18, 114}
+
+\lstdefinestyle{c++}{
+language=C++,
+commentstyle=\color{gruen}, 
+keywordstyle =\color{dunkelblau}, 
+stringstyle=\color{orange},
+literate=
+    {\{}{{\textcolor{gelb}{\{}}}1
+    {\}}{{\textcolor{gelb}{\}}}}1
+    {[}{{\textcolor{lila}{[}}}1
+    {]}{{\textcolor{lila}{]}}}1,
+%Bis hier hin Farbgebung
+frame=single, % Umrandung des Codes
+rulecolor=\color{lightgray},
+numbers=left, % Nummerierung hinzufügen (links)
+numberstyle=\tiny, % Stil der Zeilennummern
+stepnumber=1, % Schrittzahl für die Nummerierung
+numbersep=5pt, % Abstand zwischen Nummerierung und Code
+basicstyle=\sffamily, % Ändert die Schriftart des Codes
+tabsize = 4, %Tab-Abstand
+breaklines=true, %Zeilenumbruch
+showstringspaces=false
+}
+
+
+\definecolor{hellblau}{RGB}{100,149,237}
+\begin{document}
+
+% hier aktuelle Uebungsnummer einfuegen
+\title{Programmieren "Ubung 10}
+
+% Namen der Bearbeiter einfuegen
+
+\author{Jakob Schulz}
+
+% aktuelles Datum einfuegen
+
+\date{\today}
+
+\maketitle{\thispagestyle{plain}}
+
+\section{safeArray- Klasse}
+\subsection{Die Header Datei der Klasse "`safeArray"'}
+\lstinputlisting[style = c++]{safeArray.hpp}
+\subsection{Die Implementireung der Klasse "`safeArray"'}
+\lstinputlisting[style = c++]{safeArray.cpp}
+\newpage
+\section{Die main- Klasse}
+In der main- Klasse sind die Funktionen zum Testen der Klasse implementiert
+\lstinputlisting[style = c++]{main.cpp}
+Die Bibliothek \verb+iostream+ besitzt sogenannte namespaces. Diese dienen dazu, deinen Bereich von Bezeichnern, Variablen und Klassen zu orgenaisieren und zu isolieren. Dadurch werden Namenskonflikte vermieden und man kann beispielsweise den Namen cout mehrfach f"ur Variablen, Funktionen,\dots nehmen, solange sie in unterschiedlichen Namespaces sind.\\
+Durch \verb+using namespace std+ kann man direkt auf die Funktionen,\dots zugreifen zugreifen ohne jedes mal den Namespace angeben zu m"ussen.
+\section{CMake- Datei}
+Die Datei \verb+CmakeLists.txt+ beschreibt, wie aus der Klasse und dem Hauotprogramm eine ausf"uhrbare Datei gebaut wird (build).
+\lstinputlisting[style = c++]{CMakeLists.txt}
+
+\end{document}
