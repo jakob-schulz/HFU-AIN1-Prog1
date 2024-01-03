@@ -67,8 +67,39 @@ In der main- Klasse sind die Funktionen zum Testen der Klasse implementiert
 \lstinputlisting[style = c++]{main.cpp}
 Die Bibliothek \verb+iostream+ besitzt sogenannte namespaces. Diese dienen dazu, deinen Bereich von Bezeichnern, Variablen und Klassen zu orgenaisieren und zu isolieren. Dadurch werden Namenskonflikte vermieden und man kann beispielsweise den Namen cout mehrfach f"ur Variablen, Funktionen,\dots nehmen, solange sie in unterschiedlichen Namespaces sind.\\
 Durch \verb+using namespace std+ kann man direkt auf die Funktionen,\dots zugreifen zugreifen ohne jedes mal den Namespace angeben zu m"ussen.
-\section{CMake- Datei}
-Die Datei \verb+CmakeLists.txt+ beschreibt, wie aus der Klasse und dem Hauotprogramm eine ausf"uhrbare Datei gebaut wird (build).
-\lstinputlisting[style = c++]{CMakeLists.txt}
+\section{Anpassen der tasks.json-Datei}
+Die tasks.json-Datei enth"ahlt die Compiler Aufrufe. Wenn man ein Projekt hat, welches aus mehreren Dateien besteht, muss man diese Datei gegebenfalls ab"andern. Ansonsten kann man das Programm nicht mit Hilfe von VS-Code ausf"uhren. Alternativ w"are es auch m"oglich mit Hilfe von CMake die Dateien zu kompilieren. (siehe Aufgabe 09)\newpage
+Die Datei:\\
+\begin{lstlisting}[style = c++] %Ist eigentlich nicht c++!!
 
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe build project",
+            "command": "C:\\\\msys64\\\\ucrt64\\\\bin\\\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\\\main.cpp", //Fuegt hier eure Hauptdatei hinzu
+                "%${workspaceFolder}\\\\safeArray.cpp", //Fuegt hier weitere Dateien hinzu
+                "-o",
+                "%${workspaceFolder}\\\\main.exe" //Name der ausfuehrbaren Datei
+            ],
+            "options": {
+                "cwd": "%{workspaceFolder}"
+            },
+            "problemMatcher": [
+                "%$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Compiler task for the project."
+        }
+    ],
+    "version": "2.0.0"
+}
+\end{lstlisting}
 \end{document}
